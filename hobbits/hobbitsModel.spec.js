@@ -20,5 +20,7 @@ describe('Hobbits model', () => {
       const hobbit = await Hobbits.insert({ name: 'sam' })
       expect(hobbit).toMatchObject({ name: 'sam' })
     })
+
+    
   })
 })
