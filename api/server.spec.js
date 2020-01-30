@@ -10,14 +10,15 @@ describe('server.js module', () => {
 
     it('returns a 200 OK async/await', async () => {
       const res = await request(server).get('/')
+      expect(res.status).toBe(201)
     })
 
-    it('returns a 200 OK ES6 promises', () => {
+    // it('returns a 200 OK ES6 promises', () => {
 
-    })
+    // })
 
-    it('returns a 200 OK supertest', () => {
+    // it('returns a 200 OK supertest', () => {
 
-    })
+    // })
   })
 })
