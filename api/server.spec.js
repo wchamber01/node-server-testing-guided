@@ -24,5 +24,10 @@ describe('server.js module', () => {
       return request(server).get('/')
         .expect(200)
     })
+
+    it('returns the right body', () => {
+      return request(server).get('/')
+        .expect({ api: 'up' })
+    })
   })
 })
