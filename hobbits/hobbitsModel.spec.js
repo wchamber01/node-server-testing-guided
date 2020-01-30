@@ -7,13 +7,18 @@ beforeEach(async () => {
 
 describe('Hobbits model', () => {
   describe('insert()', () => {
-    it('inserts hobbits into the db', async () => {
+    it('inserts the correct number of hobbits', async () => {
       // setup
       await Hobbits.insert({ name: 'sam' })
       await Hobbits.insert({ name: 'frodo' })
       const hobbits = await db('hobbits')
       // assertion
       expect(hobbits).toHaveLength(2)
+    })
+
+    it('inserts the hobbits without breaking them', async () => {
+      const hobbit = await Hobbits.insert({ name: 'sam' })
+      expect(hobbit).toMatchObject({ name: 'sam' })
     })
   })
 })
