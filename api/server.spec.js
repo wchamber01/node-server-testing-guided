@@ -20,8 +20,9 @@ describe('server.js module', () => {
         })
     })
 
-    // it('returns a 200 OK supertest', () => {
-
-    // })
+    it('returns a 200 OK supertest', () => {
+      return request(server).get('/')
+        .expect(200)
+    })
   })
 })
