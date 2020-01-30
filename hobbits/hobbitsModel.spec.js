@@ -1,6 +1,10 @@
 const db = require('../data/dbConfig')
 const Hobbits = require('./hobbitsModel')
 
+beforeEach(async () => {
+  await db('hobbits').truncate()
+})
+
 describe('Hobbits model', () => {
   describe('insert()', () => {
     it('inserts hobbits into the db', async () => {
