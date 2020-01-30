@@ -16,7 +16,9 @@ describe('server.js module', () => {
     it('returns a 200 OK ES6 promises', () => {
       return request(server).get('/')
         .then(res => {
+          // run all the jest matchers you want
           expect(res.status).toBe(200)
+          // expect(res.body).toMatchObject({ api: 'up' })
         })
     })
 
@@ -28,6 +30,13 @@ describe('server.js module', () => {
     it('returns the right body', () => {
       return request(server).get('/')
         .expect({ api: 'up' })
+    })
+
+    it('returns the right headers', () => {
+      // multi-assertion test
+      return request(server).get('/')
+        .expect('Content-Length', '12')
+        .expect('Content-Type', /json/)
     })
   })
 })
