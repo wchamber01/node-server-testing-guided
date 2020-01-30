@@ -21,6 +21,13 @@ describe('Hobbits model', () => {
       expect(hobbit).toMatchObject({ name: 'sam' })
     })
 
-    
+    it('can find a hobbit in the db', async () => {
+      // first we need a hobbit actually there
+      // remember the db gets truncated after each test
+      // don't entangle yourself with other model functions
+      await db('hobbits').insert({ name: 'sam' })
+      const sam = await Hobbits.findById(1)
+      expect(sam).toMatchObject({ name: 'sam' })
+    })
   })
 })
